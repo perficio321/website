@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Perificio",
+    title: "Perficio",
     description: "Professional Financial Assistant",
     icons: {
       icon: "/favicon.ico", // optional
@@ -29,8 +29,8 @@ export async function generateMetadata(): Promise<Metadata> {
       description: "Professional Financial Assistant for Tax & Wealth",
       type: "website",
       locale: "en_US",
-      url: "https://perificio.com", // change to your domain
-      siteName: "Perificio",
+      url: "https://perficios.com", // change to your domain
+      siteName: "Perficio",
     },
   };
 }
