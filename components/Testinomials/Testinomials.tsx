@@ -57,6 +57,11 @@ const testimonials = [
     author: "Bhavesh Doshi",
     role: "Founder, Entelechy group",
   },
+  {
+    quote:
+      "As a non-resident with investments in India, I struggled with understanding compliance requirements. Perficio provided structured guidance on capital gains, DTAA benefits, and repatriation, making tax filing completely stress-free.",
+    author: "Sultana Saifi"  
+  },
 ];
 
 // Duplicate list to enable smooth infinite loop
