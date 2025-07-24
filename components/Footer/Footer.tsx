@@ -38,7 +38,7 @@ const Footer = () => {
               href="tel:+919699800600"
               className="hover:text-white transition-colors duration-200 text-base"
             >
-              +91-9699 800 600
+              +91-9833 892 635
             </a>
           </div>
 
