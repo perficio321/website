@@ -47,7 +47,7 @@ const ViewPostClient = () => {
   });
 
   return (
-    <main className="w-full min-h-screen px-4 md:px-6 lg:px-[3.25rem] py-12 bg-white">
+    <main className="w-full min-h-screen px-4 md:px-6 lg:px-[3.25rem] py-12 bg-orange-50">
       {/* Banner Image */}
       {post.imageUrl && (
         <div className="relative w-full h-[300px] md:h-[450px] lg:h-[500px] rounded-xl overflow-hidden mb-8">

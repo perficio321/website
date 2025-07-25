@@ -9,7 +9,7 @@ export default function AllBlogs({ allPosts }: AllBlogsProps) {
   const posts = allPosts;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 pb-6">
+    <div className="max-w-6xl mx-auto px-4 pb-6 bg-orange-50">
       {/* Heading */}
       <h2 className="text-3xl font-bold text-center text-[#1D4ED8] mb-10 font-montserrat">
         All Blogs
