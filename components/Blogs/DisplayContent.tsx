@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import Post from "./Posts";
 import { TPost, TPdf } from "@/types";
 import PdfCard from "./pdfs";
+import { useRouter } from "next/navigation";
 
 export default function DisplayContent() {
   const { data: session } = useSession();
@@ -51,6 +52,12 @@ export default function DisplayContent() {
     : [];
 
   const visiblePosts = showAllPosts ? sortedPosts : sortedPosts.slice(0, 3);
+  const router = useRouter();
+  const handlePostClick = (postId: string) => {
+    console.log("Clicked Post ID:", postId);
+    // Optionally navigate:
+    router?.push(`/posts/${postId}`);
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
@@ -76,10 +83,14 @@ export default function DisplayContent() {
       {activeTab === "blogs" ? (
         visiblePosts.length > 0 ? (
           <>
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div  className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {visiblePosts.map((post) => (
+                <div
+      key={post.id}
+      onClick={() => handlePostClick(post.id)}
+      className="cursor-pointer"
+    >
                 <Post
-                  key={post.id}
                   id={post.id}
                   author={post.author.name}
                   authorEmail={post.authorEmail}
@@ -91,6 +102,7 @@ export default function DisplayContent() {
                   links={post.links || []}
                   isEditable={isEditable}
                 />
+                </div>
               ))}
             </div>
 
