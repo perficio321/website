@@ -45,7 +45,7 @@ Apply style="text-align: justify;" to all <p> and <ul> blocks
 
 Use <br> only for line breaks in contact details
 
-Don’t use external CSS or JavaScript add some symbols to visually attractive `;
+Do not use external CSS or JavaScript add some symbols to visually attractive `;
 
     const groqRes = await fetch(
         "https://api.groq.com/openai/v1/chat/completions",
