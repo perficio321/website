@@ -33,6 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: "https://perficios.com", // change to your domain
       siteName: "Perficio",
     },
+    metadataBase: new URL("https://perficios.com"),
   };
 }
 export default async function RootLayout({
