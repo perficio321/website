@@ -21,11 +21,12 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Perficio",
     description: "Professional Financial Assistant",
+    keywords: ["perficios","financial assistant", "wealth management", "tax assistant", "Perficio", "investment planning"],
     icons: {
       icon: "/favicon.ico", // optional
     },
     openGraph: {
-      title: "Perificio",
+      title: "Perficio",
       description: "Professional Financial Assistant for Tax & Wealth",
       type: "website",
       locale: "en_US",
