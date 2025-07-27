@@ -1,3 +1,4 @@
+"use client";
 import { TPost } from "@/types";
 import Post from "./Posts";
 import { useRouter } from "next/navigation";
