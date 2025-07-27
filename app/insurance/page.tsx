@@ -90,7 +90,7 @@ const trustReasons = [
 
 const testimonials = [
   {
-    quote: "Perificio simplified our insurance planning. Their tax advice was invaluable!",
+    quote: "Perficio simplified our insurance planning. Their tax advice was invaluable!",
     author: "Ritu Sharma, Small Business Owner",
   },
   {
@@ -105,8 +105,8 @@ const testimonials = [
 
 const faqs = [
   {
-    question: "Why should I choose Perificio for insurance advisory?",
-    answer: "At Perificio, our insurance advisory is led by Certified Accountants (CAs), ensuring you receive unbiased, tax-optimized, and expert advice tailored to your financial health. We prioritize your long-term security and provide end-to-end support.",
+    question: "Why should I choose Perficio for insurance advisory?",
+    answer: "At Perficio, our insurance advisory is led by Certified Accountants (CAs), ensuring you receive unbiased, tax-optimized, and expert advice tailored to your financial health. We prioritize your long-term security and provide end-to-end support.",
   },
   {
     question: "How do you help with tax savings on insurance?",
@@ -164,10 +164,10 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Insurance Advisory | Perificio - Your Financial Protectors</title>
+        <title>Insurance Advisory | Perficio - Your Financial Protectors</title>
         <meta
           name="description"
-          content="Personalized, tax-aligned insurance advice from CAs. Protect your income, family, and future with expert guidance from Perificio."
+          content="Personalized, tax-aligned insurance advice from CAs. Protect your income, family, and future with expert guidance from Perficio."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

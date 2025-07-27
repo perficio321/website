@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="w-[170px] h-[170px] relative mx-auto lg:mx-0 overflow-hidden rounded-lg">
             <Image
               src="/assets/LogoTransparent.png"
-              alt="Perificio Logo"
+              alt="Perficio Logo"
               fill
               className="object-cover scale-105" // scale slightly to force cropping
               priority
@@ -45,10 +45,10 @@ const Footer = () => {
           <div className="flex items-center gap-3 text-white/90">
             <FaEnvelope className="text-blue-300 text-xl" />
             <a
-              href="mailto:online@perificio.com"
+              href="mailto:online@perficio.com"
               className="hover:text-white transition-colors duration-200 text-base"
             >
-              online@perificio.com
+              online@perficio.com
             </a>
           </div>
 

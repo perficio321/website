@@ -83,30 +83,30 @@ export default function DisplayContent() {
       {activeTab === "blogs" ? (
         visiblePosts.length > 0 ? (
           <>
-            <div  className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {visiblePosts.map((post) => (
                 <div
-      key={post.id}
-      onClick={() => handlePostClick(post.id)}
-      className="cursor-pointer"
-    >
-                <Post
-                  id={post.id}
-                  author={post.author.name}
-                  authorEmail={post.authorEmail}
-                  date={post.createdAt}
-                  thumbnail={post.imageUrl}
-                  // category={post.catName}
-                  title={post.title}
-                  // content={post.content || ""}
-                  links={post.links || []}
-                  isEditable={isEditable}
-                />
+                  key={post.id}
+                  onClick={() => handlePostClick(post.id)}
+                  className="cursor-pointer"
+                >
+                  <Post
+                    id={post.id}
+                    author={post.author.name}
+                    authorEmail={post.authorEmail}
+                    date={post.createdAt}
+                    thumbnail={post.imageUrl}
+                    // category={post.catName}
+                    title={post.title}
+                    // content={post.content || ""}
+                    links={post.links || []}
+                    isEditable={isEditable}
+                  />
                 </div>
               ))}
             </div>
 
-                {posts && posts.length > 3 && (
+            {posts && posts.length > 3 && (
               <div className="text-center mt-8">
                 <button
                   onClick={() => setShowAllPosts((prev) => !prev)}
@@ -118,28 +118,34 @@ export default function DisplayContent() {
             )}
           </>
         ) : (
-          <div className="py-6 text-center text-gray-600">No posts to display</div>
+          <div className="py-6 text-center text-gray-600">
+            No posts to display
+          </div>
         )
       ) : pdfs ? (
         <>
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
- {[...pdfs]
-  ?.sort((a, b) => new Date(b.uploadedAt || "")?.getTime() - new Date(a.uploadedAt || "")?.getTime())
-  ?.slice(0, 3)
-  ?.map((pdf) => (
-    <PdfCard
-      key={pdf.id}
-      id={pdf.id}
-      title={pdf.title}
-      pdfUrl={pdf.pdfUrl}
-      publicId={pdf.publicId}
-      uploadedAt={pdf.uploadedAt || ""}
-      uploaderEmail={pdf.uploaderEmail}
-      thumbnailUrl={pdf.thumbnailUrl || ""}
-      isEditable={isEditable}
-    />
-  ))}
-</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[...pdfs]
+              ?.sort(
+                (a, b) =>
+                  new Date(b.uploadedAt || "")?.getTime() -
+                  new Date(a.uploadedAt || "")?.getTime()
+              )
+              ?.slice(0, 3)
+              ?.map((pdf) => (
+                <PdfCard
+                  key={pdf.id}
+                  id={pdf.id}
+                  title={pdf.title}
+                  pdfUrl={pdf.pdfUrl}
+                  publicId={pdf.publicId}
+                  uploadedAt={pdf.uploadedAt || ""}
+                  uploaderEmail={pdf.uploaderEmail}
+                  thumbnailUrl={pdf.thumbnailUrl || ""}
+                  isEditable={isEditable}
+                />
+              ))}
+          </div>
 
           <div className="flex items-center justify-center pt-6">
             <a

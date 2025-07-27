@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: 'All Blogs | Perficio Insights',
     description:
       'Explore all blog posts from Perficio Advisory — expert insights on tax, finance, and health planning.',
-    url: 'https://your-domain.com/blogs', // update with your actual domain
+    url: `${process.env.NEXTAUTH_URL}/blogs`, // update with your actual domain
     siteName: 'Perficio Advisory',
     type: 'website',
     locale: 'en_IN',

@@ -28,7 +28,7 @@ Contact Details:
 
 Phone: +91-9833 892 635 / 022 49764411
 
-Email: online@perificio.com
+Email: online@perficio.com
 
 Address: Office no 23/24 | A Wing | Mezzanine Floor | Satyam Shopping Centre | M.G.Road | Ghatkopar (East) | Mumbai-400 077
 

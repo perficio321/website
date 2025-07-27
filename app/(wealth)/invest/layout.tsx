@@ -3,9 +3,9 @@ import React, { ReactNode } from "react";
 
 // ✅ Metadata for the Smart Investing page
 export const metadata: Metadata = {
-  title: "Smart Mutual Fund Investing | Perificio Advisory",
+  title: "Smart Mutual Fund Investing | Perficio Advisory",
   description:
-    "Invest in top-performing mutual funds with Perificio. Zero commission, live portfolio tracking, goal-based planning, and AI-powered insights.",
+    "Invest in top-performing mutual funds with Perficio. Zero commission, live portfolio tracking, goal-based planning, and AI-powered insights.",
   keywords: [
     "Smart Investing",
     "Mutual Funds",
@@ -18,21 +18,21 @@ export const metadata: Metadata = {
     "Investment Rebalancing",
     "Direct Mutual Fund Plans",
     "Financial Planning",
-    "Perificio Advisory",
+    "Perficio Advisory",
   ],
-  metadataBase: new URL("https://www.perificio.com"),
+  metadataBase: new URL("https://www.perficio.com"),
   openGraph: {
-    title: "Invest Smarter with Perificio | Mutual Fund Advisory",
+    title: "Invest Smarter with Perficio | Mutual Fund Advisory",
     description:
-      "Perificio empowers investors with AI-driven insights, goal-based mutual fund portfolios, and commission-free investing across 2500+ funds.",
-    url: "https://www.perificio.com/invest",
-    siteName: "Perificio Advisory",
+      "Perficio empowers investors with AI-driven insights, goal-based mutual fund portfolios, and commission-free investing across 2500+ funds.",
+    url: "https://www.perficio.com/invest",
+    siteName: "Perficio Advisory",
     images: [
       {
-        url: "https://www.perificio.com/og-images/invest.png", // Replace with actual OG image
+        url: "https://www.perficio.com/og-images/invest.png", // Replace with actual OG image
         width: 1200,
         height: 630,
-        alt: "Perificio Mutual Fund Investment",
+        alt: "Perficio Mutual Fund Investment",
       },
     ],
     type: "website",
@@ -40,10 +40,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Invest in Mutual Funds the Smart Way | Perificio",
+    title: "Invest in Mutual Funds the Smart Way | Perficio",
     description:
-      "Join Perificio to access expert-curated portfolios, zero commission plans, and live insights to grow your wealth with confidence.",
-    images: ["https://www.perificio.com/twitter-images/invest.png"], // Replace with your Twitter image
+      "Join Perficio to access expert-curated portfolios, zero commission plans, and live insights to grow your wealth with confidence.",
+    images: ["https://www.perficio.com/twitter-images/invest.png"], // Replace with your Twitter image
   },
 };
 

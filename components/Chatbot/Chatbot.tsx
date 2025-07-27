@@ -44,7 +44,7 @@ const ChatBot: React.FC = () => {
   ];
 
   const perficioPhoneNumber = "+91-9833 892 635 / 022 49764411";
-  const perficioEmail = "online@perificio.com";
+  const perficioEmail = "online@perficio.com";
   const perficioAddress = "Office no 23/24 | A Wing | Mezzanine Floor | Satyam Shopping Centre | M.G.Road | Ghatkopar (East) | Mumbai-400 077";
 
   useEffect(() => {

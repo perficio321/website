@@ -3,9 +3,9 @@ import React, { ReactNode } from "react";
 
 // ✅ Metadata for MCA page
 export const metadata: Metadata = {
-  title: "MCA Compliance & Corporate Services | Perificio Advisory",
+  title: "MCA Compliance & Corporate Services | Perficio Advisory",
   description:
-    "Comprehensive MCA compliance services including company incorporation, LLP setup, ROC filings, strike-offs, conversions, and legal advisory by Perificio.",
+    "Comprehensive MCA compliance services including company incorporation, LLP setup, ROC filings, strike-offs, conversions, and legal advisory by Perficio.",
   keywords: [
     "MCA Compliance",
     "ROC Filings",
@@ -15,23 +15,23 @@ export const metadata: Metadata = {
     "Strike Off",
     "Corporate Advisory",
     "MOA AOA Drafting",
-    "Perificio",
+    "Perficio",
     "DIN DSC",
     "Corporate Law Services India"
   ],
-  metadataBase: new URL("https://www.perificio.com"),
+  metadataBase: new URL("https://www.perficio.com"),
   openGraph: {
-    title: "MCA Services & Compliance | Perificio Advisory",
+    title: "MCA Services & Compliance | Perficio Advisory",
     description:
-      "Expert services from Perificio Advisory for MCA compliance – Incorporation, ROC filings, LLP compliance, company law advisory, and more.",
-    url: "https://www.perificio.com/mca",
-    siteName: "Perificio Advisory",
+      "Expert services from Perficio Advisory for MCA compliance – Incorporation, ROC filings, LLP compliance, company law advisory, and more.",
+    url: "https://www.perficio.com/mca",
+    siteName: "Perficio Advisory",
     images: [
       {
-        url: "https://www.perificio.com/og-images/mca.png", // Replace with real OG image path
+        url: "https://www.perficio.com/og-images/mca.png", // Replace with real OG image path
         width: 1200,
         height: 630,
-        alt: "Perificio MCA Services",
+        alt: "Perficio MCA Services",
       },
     ],
     type: "website",
@@ -39,10 +39,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MCA Compliance & ROC Filing Services | Perificio",
+    title: "MCA Compliance & ROC Filing Services | Perficio",
     description:
-      "Simplify MCA compliance with Perificio – from incorporation to strike-offs, ROC compliance and more.",
-    images: ["https://www.perificio.com/twitter-images/mca.png"], // Replace with real image path
+      "Simplify MCA compliance with Perficio - from incorporation to strike-offs, ROC compliance and more.",
+    images: ["https://www.perficio.com/twitter-images/mca.png"], // Replace with real image path
   },
 };
 

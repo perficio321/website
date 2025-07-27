@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 
 // ✅ Metadata for the RERA compliance page
 export const metadata: Metadata = {
-  title: "RERA Compliance & Buyer Protection | Perificio Advisory",
+  title: "RERA Compliance & Buyer Protection | Perficio Advisory",
   description:
     "Discover how RERA ensures transparency, buyer protection, and real estate accountability. Learn about registration, grievance redressal, escrow norms, and more.",
   keywords: [
@@ -12,25 +12,25 @@ export const metadata: Metadata = {
     "Home Buyer Protection",
     "Escrow Account",
     "Real Estate Law India",
-    "Perificio",
+    "Perficio",
     "Carpet Area Regulation",
     "RERA Penalties",
     "RERA Registration",
     "RERA Dispute Redressal",
   ],
-  metadataBase: new URL("https://www.perificio.com"),
+  metadataBase: new URL("https://www.perficio.com"),
   openGraph: {
-    title: "RERA Regulatory Guidance | Perificio Advisory",
+    title: "RERA Regulatory Guidance | Perficio Advisory",
     description:
-      "Explore the benefits of RERA – Transparency, Escrow safety, On-time delivery, Legal protection, and more with Perificio’s expert guidance.",
-    url: "https://www.perificio.com/rera",
-    siteName: "Perificio Advisory",
+      "Explore the benefits of RERA - Transparency, Escrow safety, On-time delivery, Legal protection, and more with Perficio’s expert guidance.",
+    url: "https://www.perficio.com/rera",
+    siteName: "Perficio Advisory",
     images: [
       {
-        url: "https://www.perificio.com/og-images/rera.png", // Replace with your actual OG image
+        url: "https://www.perficio.com/og-images/rera.png", // Replace with your actual OG image
         width: 1200,
         height: 630,
-        alt: "RERA Compliance - Perificio Advisory",
+        alt: "RERA Compliance - Perficio Advisory",
       },
     ],
     type: "website",
@@ -38,10 +38,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "RERA Compliance & Real Estate Regulation | Perificio",
+    title: "RERA Compliance & Real Estate Regulation | Perficio",
     description:
-      "Secure your real estate investments with expert RERA compliance advisory from Perificio.",
-    images: ["https://www.perificio.com/twitter-images/rera.png"], // Replace with actual image
+      "Secure your real estate investments with expert RERA compliance advisory from Perficio.",
+    images: ["https://www.perficio.com/twitter-images/rera.png"], // Replace with actual image
   },
 };
 

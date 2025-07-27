@@ -111,8 +111,8 @@ export default function Navbar() {
                 {/* Ensure the image path is correct relative to your public folder */}
                 <img
                   className="h-5 w-auto" // Adjusted height for better visual balance
-                  src="/perificio-logo.png"
-                  alt="Perificio"
+                  src="/perficio-logo.png"
+                  alt="Perficio logo"
                 />
               </Link>
             </div>

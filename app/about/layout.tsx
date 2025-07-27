@@ -15,7 +15,8 @@ export const metadata: Metadata = {
     'Financial Planning',
     'RIA',
     'IRDAI',
-    'Mumbai Advisory Firm'
+    'Mumbai Advisory Firm',
+    'About Perficio',
   ],
   authors: [{ name: 'Perficio Advisory Services' }],
   openGraph: {

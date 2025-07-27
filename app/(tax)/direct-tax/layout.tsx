@@ -3,9 +3,9 @@ import React, { ReactNode } from "react";
 
 // ✅ Default metadata for all /direct-tax/* pages
 export const metadata: Metadata = {
-  title: "Direct Tax Services | Perificio Advisory",
+  title: "Direct Tax Services | Perficio Advisory",
   description:
-    "Expert direct tax advisory services by Perificio including ITR filing, capital gains, TDS, advance tax, and international taxation.",
+    "Expert direct tax advisory services by Perficio including ITR filing, capital gains, TDS, advance tax, and international taxation.",
   keywords: [
     "Direct Tax",
     "ITR Filing",
@@ -13,23 +13,23 @@ export const metadata: Metadata = {
     "Advance Tax",
     "Capital Gains",
     "DTAA",
-    "Perificio",
+    "Perficio",
     "Tax Advisory India",
     "Financial Consulting",
   ],
-  metadataBase: new URL("https://www.perificio.com"),
+  metadataBase: new URL("https://www.perficio.com"),
   openGraph: {
-    title: "Direct Tax Solutions | Perificio",
+    title: "Direct Tax Solutions | Perficio",
     description:
-      "Navigate direct tax complexities with Perificio’s expert services: ITR, TDS, international tax & more.",
-    url: "https://www.perificio.com/direct-tax",
-    siteName: "Perificio Advisory",
+      "Navigate direct tax complexities with Perficio’s expert services: ITR, TDS, international tax & more.",
+    url: "https://www.perficio.com/direct-tax",
+    siteName: "Perficio Advisory",
     images: [
       {
-        url: "https://www.perificio.com/og-images/direct-tax.png", // Replace with actual OG image
+        url: "https://www.perficio.com/og-images/direct-tax.png", // Replace with actual OG image
         width: 1200,
         height: 630,
-        alt: "Perificio Direct Tax Services",
+        alt: "Perficio Direct Tax Services",
       },
     ],
     type: "website",
@@ -37,10 +37,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Direct Tax Services | Perificio Advisory",
+    title: "Direct Tax Services | Perficio Advisory",
     description:
-      "Explore top-tier direct tax services including ITR filing, capital gains, and international taxation with Perificio.",
-    images: ["https://www.perificio.com/twitter-images/direct-tax.png"], // Replace if needed
+      "Explore top-tier direct tax services including ITR filing, capital gains, and international taxation with Perficio.",
+    images: ["https://www.perficio.com/twitter-images/direct-tax.png"], // Replace if needed
   },
 };
 
