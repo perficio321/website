@@ -32,9 +32,9 @@ export const metadata: Metadata = {
 
 export default function PdfsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-orange-50  text-gray-900">
+    <div className="min-h-screen bg-orange-50 text-gray-900">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
-        <div className="text-center">
+         <div className="bg-gradient-to-r from-blue-50 via-orange-100 to-yellow-50 py-12 shadow-inner text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-blue-900 font-poppins mb-4">
             Our PDF Library
           </h1>

@@ -39,7 +39,7 @@ export default function BlogsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-white min-h-screen pt-12">
+    <div className="bg-orange-50 min-h-screen pt-12">
       <div className="bg-gradient-to-r from-blue-50 via-orange-100 to-yellow-50 py-12 shadow-inner">
         <h1 className="text-4xl sm:text-5xl text-center font-bold text-blue-900 font-montserrat">
           Explore Our Latest Blogs
