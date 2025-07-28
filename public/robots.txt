@@ -7,8 +7,8 @@ Disallow: /sign-in
 Disallow: /unauthorized
 
 # Host
-Host: https://www.perficios.com
+Host: https://perficios.com
 
 # Sitemaps
-Sitemap: https://www.perficios.com/sitemap.xml
-Sitemap: https://www.perficios.com/server-sitemap.xml
+Sitemap: https://perficios.com/sitemap.xml
+Sitemap: https://perficios.com/server-sitemap.xml
