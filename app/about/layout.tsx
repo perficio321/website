@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     'IRDAI',
     'Mumbai Advisory Firm',
     'About Perficio',
+    'perficios.com'
   ],
   authors: [{ name: 'Perficio Advisory Services' }],
   openGraph: {

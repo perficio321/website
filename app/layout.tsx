@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Perficio",
     description: "Professional Financial Assistant",
-    keywords: ["perficios","financial assistant", "wealth management", "tax assistant", "Perficio", "investment planning"],
+    keywords: ["perficios","financial assistant", "wealth management", "tax assistant", "Perficio.com",  'perficio',  'perficio.com', "investment planning",'perficios.com'],
     icons: {
       icon: "/favicon.ico", // optional
     },

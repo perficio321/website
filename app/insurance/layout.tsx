@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     'tax-saving insurance',
     'CA insurance advice',
     'Perficio financial protection',
+    'perficios.com',
+    'perficios insurance'
   ],
   openGraph: {
     title: 'Insurance Advisory | Perficio Advisory',

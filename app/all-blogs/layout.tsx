@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     'Money Management',
     'CA Blogs',
     'Advisory Insights',
+    'perficios.com'
   ],
   openGraph: {
     title: 'All Blogs | Perficio Insights',

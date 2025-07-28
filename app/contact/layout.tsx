@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     'Financial Planning Consultation',
     'Chartered Accountant Contact',
     'Get in touch Perficio',
+    'perficios.com',
+    'perficios contact'
   ],
   openGraph: {
     title: 'Contact Us | Perficio Advisory Services',
