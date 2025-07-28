@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sign-in
+Disallow: /unauthorized
+
+# Host
+Host: https://www.perficios.com
+
+# Sitemaps
+Sitemap: https://www.perficios.com/sitemap.xml
+Sitemap: https://www.perficios.com/server-sitemap.xml
