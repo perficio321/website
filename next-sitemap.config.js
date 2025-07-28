@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.perficios.com',
+  siteUrl: process.env.NEXTAUTH_URL || 'https://www.perficios.com',
   generateRobotsTxt: true,
   sitemapSize: 5000,
   changefreq: 'monthly',
@@ -20,7 +20,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://www.perficios.com/server-sitemap.xml',
+      `${process.env.NEXTAUTH_URL || 'https://www.perficios.com'}/server-sitemap.xml`,
     ],
   },
 }
