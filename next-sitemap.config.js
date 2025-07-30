@@ -1,9 +1,9 @@
 /** @type {import('next-sitemap').IConfig} */
-const fg   = require('fast-glob')
-const path = require('path')
+const fg = require("fast-glob");
+const path = require("path");
 
 // Use production URL from env, otherwise fallback
-const siteUrl = process.env.NEXTAUTH_URL || 'https://www.perficios.com'
+const siteUrl = process.env.NEXTAUTH_URL || "https://www.perficios.com";
 
 /**
  * Recursively grab every `page.tsx|tsx|js|jsx|mdx` inside /app
@@ -11,31 +11,31 @@ const siteUrl = process.env.NEXTAUTH_URL || 'https://www.perficios.com'
  */
 async function getStaticAppRoutes() {
   const files = await fg([
-    'app/**/page.@(js|jsx|ts|tsx|mdx)',
-    '!app/**/(api)/**',          // skip API routes
-    '!app/**/(_*)/**',           // skip anything like _layout
-  ])
+    "app/**/page.@(js|jsx|ts|tsx|mdx)",
+    "!app/**/(api)/**", // skip API routes
+    "!app/**/(_*)/**", // skip anything like _layout
+  ]);
 
-  return files
-    .map((file) => {
-      // ->  app/tax/direct-tax/page.tsx  ➜  /tax/direct-tax
-      let route = file
-        .replace(/^app\//, '')              // drop leading 'app/'
-        .replace(/\/page\.(jsx?|tsx?|mdx)$/, '') // drop trailing file name
-        .split('/')                         // remove `(group)` and `@slot`
-        .filter((seg) => !seg.startsWith('(') && !seg.startsWith('@'))
-        .join('/')
+  return files.map((file) => {
+    // ->  app/tax/direct-tax/page.tsx  ➜  /tax/direct-tax
+    let route = file
+      .replace(/^app\//, "") // drop leading 'app/'
+      .replace(/\/page\.(jsx?|tsx?|mdx)$/, "") // drop trailing file name
+      .split("/") // remove `(group)` and `@slot`
+      .filter((seg) => !seg.startsWith("(") && !seg.startsWith("@"))
+      .join("/");
 
-      // root page (`app/page.tsx`) becomes '/'
-      if (route === '') route = '/'
+    // root page (`app/page.tsx`) becomes '/'
+    if (route === "page.tsx") route = "/"; 
+    if (route === "") route = "/";
 
-      return {
-        loc: `${siteUrl}/${route}`,
-        changefreq: 'monthly',
-        priority: 0.8,
-        lastmod: new Date().toISOString(),
-      }
-    })
+    return {
+      loc: `${siteUrl}${route === "/" ? "" : `/${route.replace(/^\/+/, "")}`}`,
+      changefreq: "monthly",
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    };
+  });
 }
 
 /** Main config */
@@ -43,18 +43,18 @@ module.exports = {
   siteUrl,
   generateRobotsTxt: true,
   sitemapSize: 5000,
-  changefreq: 'monthly',
+  changefreq: "monthly",
   priority: 0.7,
 
   // paths that should never be indexed
-  exclude: ['/admin/*', '/api/*', '/unauthorized', '/sign-in'],
+  exclude: ["/admin/*", "/api/*", "/unauthorized", "/sign-in"],
 
   robotsTxtOptions: {
     policies: [
       {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/admin/', '/api/', '/sign-in', '/unauthorized'],
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/admin/", "/api/", "/sign-in", "/unauthorized"],
       },
     ],
     additionalSitemaps: [`${siteUrl}/server-sitemap.xml`],
@@ -65,4 +65,4 @@ module.exports = {
    * We merge the App‑Router pages here.
    */
   additionalPaths: async () => await getStaticAppRoutes(),
-}
+};
