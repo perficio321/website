@@ -57,7 +57,6 @@ module.exports = {
         disallow: ["/admin/", "/api/", "/sign-in", "/unauthorized"],
       },
     ],
-    additionalSitemaps: [`${siteUrl}/server-sitemap.xml`],
   },
 
   /**
