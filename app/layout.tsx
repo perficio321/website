@@ -17,25 +17,33 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
+// Static metadata (for home + fallback)
+export const metadata: Metadata = {
+  title: "Perficio - Professional Financial Assistant",
+  description: "Perficio helps you manage your finances, taxes, and investments professionally.",
+  keywords: [
+    "perficio",
+    "perficios",
+    "financial assistant",
+    "wealth management",
+    "tax assistant",
+    "Perficio.com",
+    "investment planning",
+  ],
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
     title: "Perficio",
-    description: "Professional Financial Assistant",
-    keywords: ["perficios","financial assistant", "wealth management", "tax assistant", "Perficio.com",  'perficio',  'perficio.com', "investment planning",'perficios.com'],
-    icons: {
-      icon: "/favicon.ico", // optional
-    },
-    openGraph: {
-      title: "Perficio",
-      description: "Professional Financial Assistant for Tax & Wealth",
-      type: "website",
-      locale: "en_US",
-      url: "https://perficios.com", // change to your domain
-      siteName: "Perficio",
-    },
-    metadataBase: new URL("https://perficios.com"),
-  };
-}
+    description: "Professional Financial Assistant for Tax & Wealth",
+    type: "website",
+    locale: "en_US",
+    url: "https://perficios.com",
+    siteName: "Perficio",
+  },
+  metadataBase: new URL("https://perficios.com"),
+};
+
 export default async function RootLayout({
   children,
 }: Readonly<{
