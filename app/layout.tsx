@@ -17,19 +17,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Static metadata (for home + fallback)
 export const metadata: Metadata = {
   title: "Perficio - Professional Financial Assistant",
-  description: "Perficio helps you manage your finances, taxes, and investments professionally.",
-  keywords: [
-    "perficio",
-    "perficios",
-    "financial assistant",
-    "wealth management",
-    "tax assistant",
-    "Perficio.com",
-    "investment planning",
-  ],
+  description: "Achieve financial freedom and secure your future with Perficio's expert financial planning, real estate advisory, tax assistance, and comprehensive wealth management services for individuals and businesses across India. Partner with Perficio for smart growth and lasting security",
+keywords: [
+"Perficio", // Primary brand keyword
+"Perficio India",
+"Financial Advisory India",
+"Real Estate Advisory India",
+"Wealth Management India",
+"Tax Assistance India", // Using 'Assistance'
+"Investment Planning India",
+"Personal Financial Planning India",
+"NRI Financial Services India",
+"Business Financial Services India",
+"Financial Consultant Mumbai", // Example for a specific city, modify as needed
+"Financial Advisor Perficio",
+"Property Advisory India", // More specific for real estate
+"Asset Management India", // Broaden wealth management
+"Financial Growth India",
+"Financial Security India",
+"Perficios", // Common misspelling/variation
+"https://www.google.com/search?q=Perficios.com", // Direct domain (useful for brand searches)
+"perficio.com",
+"perficios.com", // Also include the correct spelling of the domain if people might search it
+"Financial Planning Company", // Broader industry term
+],
   icons: {
     icon: "/favicon.ico",
   },

@@ -3,47 +3,39 @@ import React, { ReactNode } from "react";
 
 // ✅ Metadata for the Smart Investing page
 export const metadata: Metadata = {
-  title: "Smart Mutual Fund Investing | Perficio Advisory",
+  title: "Perficio Investments | Smart Fund Advisory & Planning",
   description:
     "Invest in top-performing mutual funds with Perficio. Zero commission, live portfolio tracking, goal-based planning, and AI-powered insights.",
   keywords: [
-    "Smart Investing",
-    "Mutual Funds",
-    "Zero Commission Investment",
-    "AI Portfolio",
-    "Investment Goals",
-    "Top Funds India",
-    "Morningstar Mutual Funds",
-    "CRISIL Verified Funds",
-    "Investment Rebalancing",
-    "Direct Mutual Fund Plans",
-    "Financial Planning",
-    "Perficio Advisory",
+    "Perficio Investments", // Primary keyword
+    "Perficio Financial Planning",
+    "Smart Investment India",
+    "Mutual Fund Investment India",
+    "Zero Commission Mutual Funds",
+    "AI-Powered Investment Advisory",
+    "Goal-Based Financial Planning",
+    "Alternate Investment Funds India", // Matches "AIF"
+    "Portfolio Management Services India", // Matches "PMS"
+    "Global Investment Advisory India",
+    "NRI Investment Planning India",
+    "Succession Planning India",
+    "Estate Planning India",
+    "Startup Investment Advisory",
+    "Angel Investment India",
+    "Wealth Management India",
+    "Financial Advisor Perficio",
+    "Perficios Investments", // Including the common misspelling
+    "Perficios Financial Planning" // Misspelling + related service
   ],
-  metadataBase: new URL("https://www.perficio.com"),
+  metadataBase: new URL("https://www.perficios.com"),
   openGraph: {
-    title: "Invest Smarter with Perficio | Mutual Fund Advisory",
+    title: "Perficio Investments | Smart Fund Advisory & Planning",
     description:
       "Perficio empowers investors with AI-driven insights, goal-based mutual fund portfolios, and commission-free investing across 2500+ funds.",
     url: "https://www.perficio.com/invest",
     siteName: "Perficio Advisory",
-    images: [
-      {
-        url: "https://www.perficio.com/og-images/invest.png", // Replace with actual OG image
-        width: 1200,
-        height: 630,
-        alt: "Perficio Mutual Fund Investment",
-      },
-    ],
     type: "website",
     locale: "en_IN",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Invest in Mutual Funds the Smart Way | Perficio",
-    description:
-      "Join Perficio to access expert-curated portfolios, zero commission plans, and live insights to grow your wealth with confidence.",
-    images: ["https://www.perficio.com/twitter-images/invest.png"], // Replace with your Twitter image
   },
 };
 

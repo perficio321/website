@@ -1,7 +1,5 @@
 "use client"; // This directive is crucial for using React Hooks like useEffect and useState in Next.js
-
-import React from "react";
-import Link from "next/link"; // Ensure Link is imported if used for navigation
+import React from "react"; // Ensure Link is imported if used for navigation
 
 const page = () => {
   // Define the features data, now with only 6 features
@@ -50,11 +48,9 @@ const page = () => {
       {/* Main content wrapper for consistent spacing and max-width */}
       <main className="w-full max-w-7xl mx-auto py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16 lg:space-y-20">
         {/* Hero Section for Invest Page - Using the prominent orange gradient from the first page */}
-
         {/* Heading with blue-900 and  */}
         <h1
-          className="text-4xl text-center sm:text-5xl lg:text-6xl font-extrabold text-blue-900   leading-tight mb-8
-                        "
+          className="text-4xl text-center sm:text-5xl lg:text-6xl font-extrabold text-blue-900   leading-tight mb-8"
         >
           Smart Investing Made <span className="text-red-600">Simple.</span>
         </h1>

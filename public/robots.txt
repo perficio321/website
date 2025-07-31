@@ -11,4 +11,3 @@ Host: https://perficios.com
 
 # Sitemaps
 Sitemap: https://perficios.com/sitemap.xml
-Sitemap: https://perficios.com/server-sitemap.xml

@@ -1,7 +1,5 @@
 'use client'; // This directive is crucial for using React Hooks like useEffect and useState in Next.js
-
-import React from 'react';
-import Link from 'next/link'; // Ensure Link is imported if used for navigation
+import React from 'react'; // Ensure Link is imported if used for navigation
 
 const page = () => {
     // Define the features data for Real Estate services
@@ -43,19 +41,13 @@ const page = () => {
         <div className="min-h-screen bg-orange-50  text-gray-900 overflow-hidden">
             {/* Main content wrapper for consistent spacing and max-width */}
             <main className="w-full max-w-7xl mx-auto py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16 lg:space-y-20">
-
-                {/* Hero Section for Real Estate Page - Using the prominent orange gradient */}
-             
+                {/* Hero Section for Real Estate Page - Using the prominent orange gradient */}   
                         {/* Heading with blue-900 and  */}
                         <h1 className="text-4xl text-center sm:text-5xl lg:text-6xl font-extrabold text-blue-900 mb-4  leading-tight">
                             Your Trusted Partner in <span className="text-red-600">Real Estate.</span> {/* Retaining red accent */}
                         </h1>
                         {/* Paragraph text with gray-700 and  */}
-                      
-        
-
                 {/* Features Section for Real Estate Services - Using the lighter orange gradient */}
-             
                     <div className="container mx-auto px-4">
                         {/* Heading with blue-800 and  */}
                         <h2 className="text-3xl sm:text-4xl font-bold text-blue-800 text-center mb-10 ">
@@ -85,14 +77,9 @@ const page = () => {
                             ))}
                         </div>
                     </div>
-               
-
                 {/* Call to Action/Contact Section - Using the tertiary orange gradient */}
-           
             </main>
-
             {/* Global Font Imports - It's highly recommended to place this in your _app.js or layout.js for global application */}
-         
         </div>
     );
 };
