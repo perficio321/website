@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     "RERA Registration",
     "RERA Dispute Redressal",
   ],
-  metadataBase: new URL("https://www.perficio.com"),
+  metadataBase: new URL("https://www.perficios.com"),
   openGraph: {
     title: "RERA Regulatory Guidance | Perficio Advisory",
     description:
       "Explore the benefits of RERA - Transparency, Escrow safety, On-time delivery, Legal protection, and more with Perficio’s expert guidance.",
-    url: "https://www.perficio.com/rera",
+    url: "https://www.perficios.com/rera",
     siteName: "Perficio Advisory",
     images: [
       {

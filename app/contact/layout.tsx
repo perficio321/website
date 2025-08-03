@@ -19,17 +19,10 @@ export const metadata: Metadata = {
     title: 'Contact Us | Perficio Advisory Services',
     description:
       'Connect with Perficio Advisory for tax planning, financial wellness, and wealth advisory solutions. Reach out to our expert team.',
-    url: 'https://your-domain.com/contact-us', // Replace with actual domain
+    url: 'https://perficios.com/contact-us', // Replace with actual domain
     siteName: 'Perficio Advisory',
     locale: 'en_IN',
     type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Contact Perficio Advisory',
-    description:
-      'We are ready to assist you with expert financial, tax, and health advisory. Reach out today!',
-    site: '@perficio_advisory', // Replace with your handle
   },
 };
 

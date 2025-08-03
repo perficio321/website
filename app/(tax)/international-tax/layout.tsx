@@ -8,17 +8,10 @@ export const metadata: Metadata = {
     title: "International Taxation | Perficio",
     description:
       "Comprehensive support on International Tax compliance, NRI investments, cross-border taxation, and RBI filings. Navigate global finances confidently with Perficio.",
-    url: "https://your-domain.com/fema", // Replace with your actual domain
+    url: "https://perficios.com/international-tax", // Replace with your actual domain
     siteName: "Perficio",
     locale: "en_IN",
     type: "website",
-  },
-  twitter: {
-    card: "summary",
-    title: "International Taxation | Perficio",
-    description:
-      "CA-led expertise in International Tax, cross-border taxation, and NRI investment structuring. Stay compliant and optimize your foreign transactions.",
-    site: "@perficio_advisory", // Replace with your actual handle
   },
 };
 

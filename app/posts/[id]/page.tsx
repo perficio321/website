@@ -6,10 +6,6 @@ import { TPost } from "@/types";
 import Image from "next/image";
 
 
-
-
-
-
 const ViewPostClient = () => {
   const pathname = usePathname(); // e.g., /posts/123
   const id = pathname.split("/")[2]; // Extract post ID

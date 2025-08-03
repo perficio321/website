@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: 'Insurance Advisory | Perficio Advisory',
     description:
       'Get unbiased, tax-aligned insurance guidance from our CA-led team. Protect your family, assets, and future with expert planning.',
-    url: 'https://your-domain.com/insurance-advisory', // Replace with actual domain
+    url: 'https://perficios.com/insurance-advisory', // Replace with actual domain
     siteName: 'Perficio Advisory',
     locale: 'en_IN',
     type: 'website',

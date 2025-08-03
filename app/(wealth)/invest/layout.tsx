@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Perficio Investments | Smart Fund Advisory & Planning",
     description:
       "Perficio empowers investors with AI-driven insights, goal-based mutual fund portfolios, and commission-free investing across 2500+ funds.",
-    url: "https://www.perficio.com/invest",
+    url: "https://www.perficios.com/invest",
     siteName: "Perficio Advisory",
     type: "website",
     locale: "en_IN",

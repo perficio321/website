@@ -19,12 +19,12 @@ export const metadata: Metadata = {
     "DIN DSC",
     "Corporate Law Services India"
   ],
-  metadataBase: new URL("https://www.perficio.com"),
+  metadataBase: new URL("https://perficio.com"),
   openGraph: {
     title: "MCA Services & Compliance | Perficio Advisory",
     description:
       "Expert services from Perficio Advisory for MCA compliance – Incorporation, ROC filings, LLP compliance, company law advisory, and more.",
-    url: "https://www.perficio.com/mca",
+    url: "https://www.perficios.com/mca",
     siteName: "Perficio Advisory",
     images: [
       {

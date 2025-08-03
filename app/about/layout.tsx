@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: 'About Perficio - Your Trusted Partner for Tax, Health & Wealth',
     description:
       'Discover Perficio, a firm integrating health, wealth, and taxation expertise with global reach and AI-driven tools.',
-    url: 'https://your-domain.com/about-us', // replace with actual domain
+    url: 'https://perficios.com/about-us', // replace with actual domain
     siteName: 'Perficio Advisory Services',
     type: 'website',
     locale: 'en_IN',

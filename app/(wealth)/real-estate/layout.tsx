@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "Perficio Advisory",
     images: [
       {
-        url: "https://www.perficio.com/og-images/real-estate.png", // Update to your actual OG image
+        url: "https://www.perficios.com/og-images/real-estate.png", // Update to your actual OG image
         width: 1200,
         height: 630,
         alt: "Perficio Real Estate Advisory",
