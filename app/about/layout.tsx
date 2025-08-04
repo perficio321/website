@@ -24,17 +24,10 @@ export const metadata: Metadata = {
     title: 'About Perficio - Your Trusted Partner for Tax, Health & Wealth',
     description:
       'Discover Perficio, a firm integrating health, wealth, and taxation expertise with global reach and AI-driven tools.',
-    url: 'https://perficios.com/about-us', // replace with actual domain
+    url: 'https://www.perficios.com/about', // replace with actual domain
     siteName: 'Perficio Advisory Services',
     type: 'website',
     locale: 'en_IN',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'About Perficio',
-    description:
-      'Perficio Advisory Services: Accomplishing excellence in health, wealth, and taxation advisory.',
-    site: '@perficio_advisory', // replace with actual handle if available
   },
 };
 

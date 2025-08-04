@@ -52,10 +52,10 @@ export const metadata: Metadata = {
     description: "Professional Financial Assistant for Tax & Wealth",
     type: "website",
     locale: "en_US",
-    url: "https://perficios.com",
+    url: "https://www.perficios.com",
     siteName: "Perficio",
   },
-  metadataBase: new URL("https://perficios.com"),
+  metadataBase: new URL("https://www.perficios.com"),
 };
 
 export default async function RootLayout({

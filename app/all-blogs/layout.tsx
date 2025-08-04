@@ -25,13 +25,6 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Perficio Blog - Expert Financial and Health Advisory',
-    description:
-      'Read latest blog updates from Perficio Advisory Services covering tax, wealth, and health advisory.',
-    site: '@perficio_advisory', // replace if you have a Twitter handle
-  },
 };
 
 export default function BlogsLayout({

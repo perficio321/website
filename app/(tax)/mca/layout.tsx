@@ -15,36 +15,29 @@ export const metadata: Metadata = {
     "Strike Off",
     "Corporate Advisory",
     "MOA AOA Drafting",
-    "Perficio",
     "DIN DSC",
-    "Corporate Law Services India"
+    "Corporate Law Services India",
+    "Company Law Compliance",
+    "Perficio",
+    "Perficios",
+    "Perficio MCA",
+    "MCA Services India",
+    "Company Registration India",
+    "Perficios MCA",
+    "Perficio Advisory"
   ],
-  metadataBase: new URL("https://perficio.com"),
+  metadataBase: new URL("https://www.perficios.com"),
   openGraph: {
     title: "MCA Services & Compliance | Perficio Advisory",
     description:
       "Expert services from Perficio Advisory for MCA compliance – Incorporation, ROC filings, LLP compliance, company law advisory, and more.",
     url: "https://www.perficios.com/mca",
     siteName: "Perficio Advisory",
-    images: [
-      {
-        url: "https://www.perficio.com/og-images/mca.png", // Replace with real OG image path
-        width: 1200,
-        height: 630,
-        alt: "Perficio MCA Services",
-      },
-    ],
     type: "website",
     locale: "en_IN",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "MCA Compliance & ROC Filing Services | Perficio",
-    description:
-      "Simplify MCA compliance with Perficio - from incorporation to strike-offs, ROC compliance and more.",
-    images: ["https://www.perficio.com/twitter-images/mca.png"], // Replace with real image path
-  },
 };
+
 
 interface McaLayoutProps {
   children: ReactNode;

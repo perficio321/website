@@ -13,23 +13,17 @@ export const metadata: Metadata = {
     'CA insurance advice',
     'Perficio financial protection',
     'perficios.com',
-    'perficios insurance'
+    'perficios insurance',
+    'perficio insurance'
   ],
   openGraph: {
     title: 'Insurance Advisory | Perficio Advisory',
     description:
       'Get unbiased, tax-aligned insurance guidance from our CA-led team. Protect your family, assets, and future with expert planning.',
-    url: 'https://perficios.com/insurance-advisory', // Replace with actual domain
+    url: 'https://www.perficios.com/insurance', // Replace with actual domain
     siteName: 'Perficio Advisory',
     locale: 'en_IN',
     type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Insurance Advisory | Perficio',
-    description:
-      'Plan smarter with expert insurance advice. We protect your financial journey with clarity, tax benefits, and support.',
-    site: '@perficio_advisory', // Replace with actual handle if available
   },
 };
 

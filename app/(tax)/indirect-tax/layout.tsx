@@ -1,19 +1,39 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Indirect Taxation Services | Perficio",
+  title: "Indirect Tax Services (GST, Audits, Litigation) | Perficio Advisory",
   description:
-    "Expert indirect tax advisory including GST registration, filings, audits, LUTs, litigation support & more. Simplify compliance with Perficio.",
+    "Perficio offers expert indirect tax services in India including GST registration, returns, audits, LUT filing, and litigation support—ensuring seamless compliance.",
+  keywords: [
+    "Indirect Tax Services India",
+    "GST Registration",
+    "GST Filing",
+    "GST Audit",
+    "GST Litigation",
+    "LUT Filing",
+    "Indirect Tax Advisory",
+    "Perficio",
+    "Perficios",
+    "Perficio Advisory",
+    "GST Consultants India",
+    "Tax Compliance India",
+    "Best Indirect Tax Consultants",
+    "CA GST Experts",
+    "GST Refund Assistance",
+    "Indirect Tax Dispute Resolution"
+  ],
+  metadataBase: new URL("https://www.perficios.com"),
   openGraph: {
-    title: "Indirect Taxation Services | Perficio",
+    title: "Indirect Tax Services (GST, Audits, LUT) | Perficio Advisory",
     description:
-      "Simplify your GST filings, audits, and disputes with CA-led indirect tax experts. Explore Perficio's advisory offerings.",
-    url: "https://perficios.com/indirect-tax", // Replace with your actual domain
-    siteName: "Perficio",
+      "Simplify GST filings, audits, compliance, and litigation with CA-led indirect tax experts at Perficio Advisory.",
+    url: "https://www.perficios.com/indirect-tax",
+    siteName: "Perficio Advisory",
     locale: "en_IN",
     type: "website",
   },
 };
+
 
 export default function IndirectTaxLayout({
   children,

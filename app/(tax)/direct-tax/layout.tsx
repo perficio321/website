@@ -26,12 +26,12 @@ export const metadata: Metadata = {
     "Tax Dispute Resolution",
     "Income Tax Experts India"
   ],
-  metadataBase: new URL("https://perficios.com"),
+  metadataBase: new URL("https://www.perficios.com"),
   openGraph: {
     title: "Direct Tax Experts | ITR, TDS, Tax Planning | Perficio Advisory",
     description:
       "Get expert tax advice from Perficio: income tax return filing, TDS, capital gains, advance tax planning, and dispute resolution.",
-    url: "https://perficio.com/direct-tax",
+    url: "https://www.perficio.com/direct-tax",
     siteName: "Perficio Advisory",
     type: "website",
     locale: "en_IN",

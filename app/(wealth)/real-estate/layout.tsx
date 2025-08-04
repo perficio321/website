@@ -32,14 +32,6 @@ export const metadata: Metadata = {
       "Perficio Real Estate offers comprehensive property services across India, including legal due diligence, investment advisory for NRIs, property valuation, and expert management. Your trusted real estate partner.",
     url: "https://www.perficios.com/real-estate",
     siteName: "Perficio Advisory",
-    images: [
-      {
-        url: "https://www.perficios.com/og-images/real-estate.png", // Update to your actual OG image
-        width: 1200,
-        height: 630,
-        alt: "Perficio Real Estate Advisory",
-      },
-    ],
     type: "website",
     locale: "en_IN",
   },

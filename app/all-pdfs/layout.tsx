@@ -11,12 +11,13 @@ export const metadata: Metadata = {
     "Downloadable Finance PDFs",
     "CA PDFs",
     "Financial Literacy PDFs",
+    "perficios"
   ],
   openGraph: {
     title: "All PDFs | Perficio Advisory Resources",
     description:
       "Download Perficio’s curated PDFs covering tax planning, compliance, and financial wellness topics.",
-    url: "https://your-domain.com/pdfs", // Replace with your actual domain
+    url: "https://www.perficios.com/pdfs", // Replace with your actual domain
     siteName: "Perficio Advisory",
     locale: "en_IN",
     type: "website",
