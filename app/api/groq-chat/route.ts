@@ -64,7 +64,7 @@ Do not use external CSS or JavaScript add some symbols to visually attractive `;
 
             body: JSON.stringify({
 
-                model: "llama3-8b-8192",
+                model: "llama-3.3-70b-versatile",
 
                 messages: [
 
