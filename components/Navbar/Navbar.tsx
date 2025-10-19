@@ -76,6 +76,7 @@ const menuConfig: Record<Role, MenuItemWithSubmenu[]> = {
         { name: "View All Pdf", href: "/all-pdfs" }
       ]
     },
+    {name: "GST Finder", href: "/admin-gstfinder" },
     { name: "Contact", href: "/show-contacts" }
   ],
   SUPERADMIN: [
