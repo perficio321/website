@@ -58,6 +58,7 @@ const menuConfig: Record<Role, MenuItemWithSubmenu[]> = {
       ]
     },
     { name: "Insurance", href: "/insurance" },
+    {name: "GST Finder", href: "/gstfinder" },
     { name: "About Us", href: "/about" },
     { name: "Contact Us", href: "/contact" }
   ],
