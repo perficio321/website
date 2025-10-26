@@ -33,9 +33,9 @@ export default function GSTChatbot() {
   const [input, setInput] = useState<string>('');
   const [isTyping, setIsTyping] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const chatContainerRef = useRef<HTMLDivElement>(null); // 👈 for auto-scroll
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
-  // ✅ Auto-scroll to latest message when messages update
+  // ✅ Auto-scroll to latest message
   useEffect(() => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTo({
@@ -45,22 +45,51 @@ export default function GSTChatbot() {
     }
   }, [messages, isTyping]);
 
+  // ✅ Search GST data (with local + API fallback)
   const searchGSTData = async (query: string): Promise<GstItem[]> => {
-    if (query.toLowerCase().includes('8443')) {
-      return [
-        {
-          hsn: '8443',
-          description:
-            'Printing machinery used for printing by means of the printing type, blocks, plates, cylinders and other printing components of heading 8442; other printers, copying machines and facsimile machines, whether or not combined; parts and accessories thereof.',
-          sgst: 9,
-          cgst: 9,
-          igst: 18,
-          schedule: 'III',
-        },
-      ];
-    }
-    if (query.toLowerCase().includes('0404')) return [];
+    const normalizedQuery = query.toLowerCase();
 
+    // Mock local data for demo
+    const staticData: GstItem[] = [
+      {
+        hsn: '1905',
+        description:
+          'Pastry, cakes, biscuits and other bakers’ wares, whether or not containing cocoa; communion wafers, empty cachets of a kind suitable for pharmaceutical use, sealing wafers, rice paper, and similar products.',
+        sgst: 2.5,
+        cgst: 2.5,
+        igst: 5,
+        schedule: 'II',
+      },
+      {
+        hsn: '4806',
+        description:
+          'Vegetable parchment, tracing papers and other glazed transparent or translucent papers, in rolls or sheets.',
+        sgst: 9,
+        cgst: 9,
+        igst: 18,
+        schedule: 'III',
+      },
+      {
+        hsn: '8443',
+        description:
+          'Printing machinery used for printing by means of the printing type, blocks, plates, cylinders, and other printing components of heading 8442; other printers, copying machines, and facsimile machines.',
+        sgst: 9,
+        cgst: 9,
+        igst: 18,
+        schedule: 'III',
+      },
+    ];
+
+    // ✅ Match singular/plural automatically
+    const baseQuery = normalizedQuery.replace(/s$/, '');
+
+    const matched = staticData.filter((item) =>
+      item.description.toLowerCase().includes(baseQuery)
+    );
+
+    if (matched.length > 0) return matched;
+
+    // ✅ Fallback to API search
     try {
       const response = await fetch('/api/gst-search', {
         method: 'POST',
@@ -77,30 +106,30 @@ export default function GSTChatbot() {
     }
   };
 
+  // ✅ Format bot response
   const formatGSTResponse = (results: GstItem[], originalQuery: string): string => {
     if (results.length === 0) {
       return `❌ No GST rate found for **"${originalQuery}"**.\n\nTry:\n• A different HSN code\n• Other product keywords`;
     }
 
-    const item = results[0];
-    const desc =
-      item.description.length > 180
-        ? item.description.substring(0, 180).trim() + '...'
-        : item.description;
-
-    let response = `✅ **Match Found for HSN ${item.hsn}**\n\n`;
-    response += `**Description:** ${desc}\n\n`;
-    response += `**GST Rates:**\n• IGST: **${item.igst || 0}%**\n• CGST: ${
-      item.cgst || 0
-    }%\n• SGST: ${item.sgst || 0}%`;
+    let response = '';
+    results.forEach((item, index) => {
+      response += `✅ **Match Found for HSN ${item.hsn}**\n\n`;
+      response += `**Description:** ${item.description.trim()}\n\n`;
+      response += `**GST Rates:**\n• IGST: **${item.igst || 0}%**\n• CGST: ${
+        item.cgst || 0
+      }%\n• SGST: ${item.sgst || 0}%`;
+      if (index < results.length - 1) response += `\n\n────────────────────\n\n`;
+    });
 
     if (results.length > 1) {
-      response += `\n\n_🔍 ${results.length - 1} more results found. Try refining your query._`;
+      response += `\n\n_🔍 ${results.length} related matches found for "${originalQuery}"._`;
     }
 
     return response;
   };
 
+  // ✅ Handle message send
   const handleSend = async (): Promise<void> => {
     if (!input.trim()) return;
 
@@ -135,6 +164,7 @@ export default function GSTChatbot() {
     }
   };
 
+  // ✅ Render messages with markdown-like formatting
   const renderMessageContent = (content: string) => {
     return content.split('\n').map((line, idx) => {
       let renderedLine = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
@@ -189,7 +219,7 @@ export default function GSTChatbot() {
         </div>
       </div>
 
-      {/* ✅ Chat Container (hidden scrollbar + auto-scroll) */}
+      {/* Chat Container */}
       <div
         ref={chatContainerRef}
         className="flex-1 min-h-0 overflow-y-auto bg-gradient-to-b from-white to-indigo-50 
@@ -280,7 +310,7 @@ export default function GSTChatbot() {
           </button>
         </div>
         <div className="text-xs text-center text-gray-400 mt-2">
-          Try: "8443" or "printing machinery"
+          Try: "8443" or "paper"
         </div>
       </div>
     </div>
