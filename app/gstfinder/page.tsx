@@ -45,81 +45,60 @@ export default function GSTChatbot() {
     }
   }, [messages, isTyping]);
 
-  // ✅ Search GST data (with local + API fallback)
+  // ✅ Search GST data via API
   const searchGSTData = async (query: string): Promise<GstItem[]> => {
-    const normalizedQuery = query.toLowerCase();
+    const cleanedQuery = query.trim();
+    if (!cleanedQuery) return [];
 
-    // Mock local data for demo
-    const staticData: GstItem[] = [
-      {
-        hsn: '1905',
-        description:
-          'Pastry, cakes, biscuits and other bakers’ wares, whether or not containing cocoa; communion wafers, empty cachets of a kind suitable for pharmaceutical use, sealing wafers, rice paper, and similar products.',
-        sgst: 2.5,
-        cgst: 2.5,
-        igst: 5,
-        schedule: 'II',
-      },
-      {
-        hsn: '4806',
-        description:
-          'Vegetable parchment, tracing papers and other glazed transparent or translucent papers, in rolls or sheets.',
-        sgst: 9,
-        cgst: 9,
-        igst: 18,
-        schedule: 'III',
-      },
-      {
-        hsn: '8443',
-        description:
-          'Printing machinery used for printing by means of the printing type, blocks, plates, cylinders, and other printing components of heading 8442; other printers, copying machines, and facsimile machines.',
-        sgst: 9,
-        cgst: 9,
-        igst: 18,
-        schedule: 'III',
-      },
-    ];
-
-    // ✅ Match singular/plural automatically
-    const baseQuery = normalizedQuery.replace(/s$/, '');
-
-    const matched = staticData.filter((item) =>
-      item.description.toLowerCase().includes(baseQuery)
-    );
-
-    if (matched.length > 0) return matched;
-
-    // ✅ Fallback to API search
     try {
       const response = await fetch('/api/gst-search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query }),
+        body: JSON.stringify({ query: cleanedQuery }),
       });
 
-      if (!response.ok) throw new Error(`Search failed: ${response.status}`);
+      if (!response.ok) {
+        console.error('API error:', response.status, await response.text());
+        return [];
+      }
+
       const data = await response.json();
-      return data.results || [];
+      return (data.results as GstItem[]) || [];
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Network/API error:', error);
       return [];
     }
   };
 
-  // ✅ Format bot response
+  // ✅ Format bot response (with Exempt handling)
   const formatGSTResponse = (results: GstItem[], originalQuery: string): string => {
     if (results.length === 0) {
-      return `❌ No GST rate found for **"${originalQuery}"**.\n\nTry:\n• A different HSN code\n• Other product keywords`;
+      return `❌ No GST rate found for **"${originalQuery}"**.\n\nTry:\n• A different HSN code\n• Other product keywords\n• Check spelling`;
     }
 
     let response = '';
+
     results.forEach((item, index) => {
+      const igst = item.igst ?? 0;
+      const cgst = item.cgst ?? 0;
+      const sgst = item.sgst ?? 0;
+      const isExempt = igst === 0 && cgst === 0 && sgst === 0;
+
       response += `✅ **Match Found for HSN ${item.hsn}**\n\n`;
       response += `**Description:** ${item.description.trim()}\n\n`;
-      response += `**GST Rates:**\n• IGST: **${item.igst || 0}%**\n• CGST: ${
-        item.cgst || 0
-      }%\n• SGST: ${item.sgst || 0}%`;
-      if (index < results.length - 1) response += `\n\n────────────────────\n\n`;
+      if (item.schedule) {
+        response += `**Schedule:** ${item.schedule}\n\n`;
+      }
+
+      if (isExempt) {
+        response += `**GST Treatment:** Exempt supply (0%)\n`;
+      } else {
+        response += `**GST Rates:**\n• IGST: **${igst}%**\n• CGST: ${cgst}%\n• SGST: ${sgst}%`;
+      }
+
+      if (index < results.length - 1) {
+        response += `\n\n────────────────────\n\n`;
+      }
     });
 
     if (results.length > 1) {
@@ -310,7 +289,7 @@ export default function GSTChatbot() {
           </button>
         </div>
         <div className="text-xs text-center text-gray-400 mt-2">
-          Try: "8443" or "paper"
+          Try: "8443", "rice", or an exempt item keyword
         </div>
       </div>
     </div>
