@@ -73,13 +73,13 @@ const ContactUsPage: React.FC = () => {
         subject: '',
         message: '',
       });
-    }catch (error) {
-  if (error instanceof Error) {
-    setPopup({ show: true, success: false, message: error.message });
-  } else {
-    setPopup({ show: true, success: false, message: 'An unexpected error occurred.' });
-  }
-}
+    } catch (error) {
+      if (error instanceof Error) {
+        setPopup({ show: true, success: false, message: error.message });
+      } else {
+        setPopup({ show: true, success: false, message: 'An unexpected error occurred.' });
+      }
+    }
 
     setTimeout(() => setPopup((prev) => ({ ...prev, show: false })), 3000);
   };
@@ -99,15 +99,15 @@ const ContactUsPage: React.FC = () => {
           </div>
         )}
 
- 
-          <div className="text-center relative z-10">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-blue-900 mb-4 font-poppins leading-tight">
-              Contact <span className="text-red-700">Perficio</span>
-            </h1>
-       
-        
-          </div>
-      
+
+        <div className="text-center relative z-10">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-blue-900 mb-4 font-poppins leading-tight">
+            Contact <span className="text-red-700">Perficio</span>
+          </h1>
+
+
+        </div>
+
 
         <section
           id="contact-form"
@@ -130,8 +130,11 @@ const ContactUsPage: React.FC = () => {
                 <div>
                   <h3 className="text-xl font-semibold text-blue-700 font-poppins">Visit Us</h3>
                   <p className="text-gray-700 font-inter">
-                  Office no 23/24 | A Wing | Mezzanine Floor | Satyam Shopping Centre | M.G.Road | Ghatkopar (East) | Mumbai-400 077
-                  <br/> T:022 49764411
+                    Office no 23/24 | A Wing | Mezzanine Floor | Satyam Shopping Centre | M.G.Road | Ghatkopar (East) | Mumbai-400 077
+                    <br />T: 022 49764411
+                  </p>
+                  <p className="text-blue-800 font-semibold font-inter mt-3 text-sm">
+                    Also available at Agra, Delhi &amp; Ahmedabad
                   </p>
                 </div>
               </div>

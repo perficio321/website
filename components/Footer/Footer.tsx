@@ -165,8 +165,11 @@ const Footer = () => {
           </h3>
           <address className="text-white/70 not-italic text-base leading-relaxed">
             Office no 23/24 | A Wing | Mezzanine Floor | Satyam Shopping Centre
-            | M.G.Road | Ghatkopar (East) | Mumbai-400 077| T:022 49764411
+            | M.G.Road | Ghatkopar (East) | Mumbai-400 077 | T:022 49764411
           </address>
+          <p className="text-white/90 font-semibold text-sm mt-3">
+            Also available at Agra, Delhi &amp; Ahmedabad
+          </p>
         </div>
       </div>
 
@@ -192,7 +195,7 @@ const Footer = () => {
         </p>
       </div>
       {/* ===== END: ADDED SECTION ===== */}
-      
+
     </footer>
   );
 };
