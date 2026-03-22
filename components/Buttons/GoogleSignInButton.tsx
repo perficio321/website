@@ -1,16 +1,40 @@
 "use client";
 import { login } from "@/actions/auth";
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 
 const GoogleSignInButton = () => {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <div onClick={() => login("google")}>
-      <div className="flex items-center justify-center gap-2 bg-black hover:bg-black text-white text-sm px-4 py-2 rounded-sm">
-        <FcGoogle className="text-white text-2xl" />
-        SignIn With Google
-      </div>
-    </div>
+    <button
+      onClick={() => login("google")}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "12px",
+        width: "100%",
+        padding: "13px 24px",
+        borderRadius: "12px",
+        border: hovered ? "2px solid #2563eb" : "2px solid #e2e8f0",
+        background: hovered ? "#f0f7ff" : "#fff",
+        cursor: "pointer",
+        fontSize: "0.95rem",
+        fontWeight: 600,
+        color: "#1e293b",
+        boxShadow: hovered
+          ? "0 8px 24px rgba(37,99,235,0.2)"
+          : "0 4px 12px rgba(0,0,0,0.08)",
+        transition: "all 0.25s ease",
+        letterSpacing: "0.02em",
+      }}
+    >
+      <FcGoogle style={{ fontSize: "1.4rem", flexShrink: 0 }} />
+      Continue with Google
+    </button>
   );
 };
 

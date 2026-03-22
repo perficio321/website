@@ -4,8 +4,7 @@ import "./globals.css";
 
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
-import Navbar from "../components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import ConditionalLayout from "@/components/ConditionalLayout/ConditionalLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -70,9 +69,7 @@ export default async function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <Navbar />
-          {children}
-          <Footer />
+          <ConditionalLayout>{children}</ConditionalLayout>
         </body>
       </html>
     </SessionProvider>

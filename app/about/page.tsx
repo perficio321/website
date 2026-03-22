@@ -224,6 +224,49 @@ const AboutUsPage = () => {
                 </p>
               </div>
             </div>
+
+            {/* CA Saurabh Card */}
+            <div className="flex-1 bg-orange-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-orange-200 overflow-hidden">
+              <div className="flex flex-col items-center p-6 sm:p-8">
+                {/* Photo */}
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-blue-600 shadow-lg mb-5">
+                  <img
+                    src="/assets/ca-saurabh.jpg"
+                    alt="CA Saurabh - Principal Consultant"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+
+                {/* Name & Title */}
+                <h3 className="text-2xl sm:text-2xl font-bold text-blue-800 mb-1">
+                  CA Saurabh
+                </h3>
+                <p className="text-red-600 font-semibold text-sm sm:text-base mb-3">
+                  Principal Consultant
+                </p>
+
+                {/* Highlights */}
+                <div className="flex flex-wrap gap-2 justify-center mb-5">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">
+                    13+ Years Experience
+                  </span>
+                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">
+                    GST Specialist
+                  </span>
+                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">
+                    Ex-General Electric
+                  </span>
+                </div>
+
+                {/* Bio */}
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base text-justify">
+                  CA Saurabh is a qualified Chartered Accountant with over <strong>13 years of experience</strong> in tax advisory, compliance, and litigation support, having worked with leading CA firms and multinational corporations including <strong>General Electric</strong>. He has extensive expertise in managing end-to-end compliance frameworks for multinational and large domestic businesses, ensuring alignment with evolving regulatory requirements.
+                </p>
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base text-justify mt-3">
+                  He specializes in <strong>Goods and Services Tax (GST)</strong>, with hands-on experience in implementation, conducting health checks, audits, and delivering structured training programs for client teams. Known for his practical and litigation-ready approach, CA Saurabh provides commercially viable GST solutions across diverse sectors, enabling organizations to effectively manage compliance, mitigate risks, and navigate complex tax landscapes with confidence.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

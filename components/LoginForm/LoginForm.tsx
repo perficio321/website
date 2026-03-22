@@ -4,85 +4,182 @@ import React, { useState } from "react";
 import { loginWithCreds } from "@/actions/auth";
 import { useFormStatus } from "react-dom";
 import { useSearchParams } from "next/navigation";
-import { HiEye, HiEyeOff } from "react-icons/hi";
+import { HiEye, HiEyeOff, HiMail, HiLockClosed } from "react-icons/hi";
+
+const SubmitButton = () => {
+  const { pending } = useFormStatus();
+  return (
+    <button
+      disabled={pending}
+      type="submit"
+      style={{
+        width: "100%",
+        padding: "13px",
+        borderRadius: "12px",
+        border: "none",
+        cursor: pending ? "not-allowed" : "pointer",
+        fontSize: "0.95rem",
+        fontWeight: 700,
+        letterSpacing: "0.04em",
+        color: "#fff",
+        background: pending
+          ? "linear-gradient(135deg, #94a3b8, #cbd5e1)"
+          : "linear-gradient(135deg, #1e40af 0%, #2563eb 100%)",
+        boxShadow: pending ? "none" : "0 6px 20px rgba(37,99,235,0.45)",
+        transition: "all 0.3s ease",
+        marginTop: "8px",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {pending ? (
+        <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" }}>
+          <span style={{
+            display: "inline-block", width: "16px", height: "16px",
+            border: "2px solid rgba(255,255,255,0.4)",
+            borderTopColor: "#fff",
+            borderRadius: "50%",
+            animation: "spin 0.8s linear infinite",
+          }} />
+          Signing in...
+        </span>
+      ) : (
+        "Sign In →"
+      )}
+    </button>
+  );
+};
 
 const LoginForm = () => {
   const searchParams = useSearchParams();
   const error = searchParams?.get("error");
   const [showPassword, setShowPassword] = useState(false);
-  const { pending } = useFormStatus();
+  const [emailFocused, setEmailFocused] = useState(false);
+  const [passFocused, setPassFocused] = useState(false);
+
+  const inputStyle = (focused: boolean): React.CSSProperties => ({
+    width: "100%",
+    padding: "12px 14px 12px 42px",
+    borderRadius: "10px",
+    border: focused ? "2px solid #2563eb" : "2px solid #e2e8f0",
+    outline: "none",
+    fontSize: "0.9rem",
+    background: focused ? "#f0f7ff" : "#f8fafc",
+    color: "#1e293b",
+    transition: "all 0.25s ease",
+    boxSizing: "border-box",
+    boxShadow: focused ? "0 0 0 4px rgba(37,99,235,0.1)" : "none",
+  });
 
   return (
-    <div className="w-full flex items-center justify-center bg-white px-4 py-4">
-      <form
-        action={loginWithCreds}
-        className="w-full max-w-md bg-white shadow-md rounded-lg p-8"
-      >
-        <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">
-          Login
-        </h2>
-        {error && (
-          <p className="text-center text-sm text-red-600 mb-4">{error}</p>
-        )}
+    <form action={loginWithCreds} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+      {/* Error */}
+      {error && (
+        <div style={{
+          background: "linear-gradient(135deg, #fef2f2, #fee2e2)",
+          border: "1px solid #fca5a5",
+          borderRadius: "10px",
+          padding: "12px 16px",
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+        }}>
+          <span style={{ fontSize: "1.1rem" }}>⚠️</span>
+          <p style={{ color: "#dc2626", fontSize: "0.85rem", fontWeight: 500, margin: 0 }}>
+            {error}
+          </p>
+        </div>
+      )}
 
-        {/* Email Field */}
-        <div className="mb-4">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Email
-          </label>
+      {/* Email */}
+      <div>
+        <label htmlFor="email" style={{ display: "block", fontSize: "0.82rem", fontWeight: 600, color: "#475569", marginBottom: "6px", letterSpacing: "0.04em" }}>
+          EMAIL ADDRESS
+        </label>
+        <div style={{ position: "relative" }}>
+          <HiMail style={{
+            position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)",
+            color: emailFocused ? "#2563eb" : "#94a3b8", fontSize: "1.15rem", transition: "color 0.25s",
+          }} />
           <input
             type="email"
-            placeholder="Enter your email"
+            placeholder="you@example.com"
             id="email"
             name="email"
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            onFocus={() => setEmailFocused(true)}
+            onBlur={() => setEmailFocused(false)}
+            style={inputStyle(emailFocused)}
           />
         </div>
+      </div>
 
-        <div >
-          <label
-            htmlFor="password"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Password
+      {/* Password */}
+      <div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
+          <label htmlFor="password" style={{ fontSize: "0.82rem", fontWeight: 600, color: "#475569", letterSpacing: "0.04em" }}>
+            PASSWORD
           </label>
-          <div className="relative">
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Enter your password"
-              name="password"
-              id="password"
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm pr-10"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600"
-            >
-              {showPassword ? <HiEyeOff size={20} /> : <HiEye size={20} />}
-            </button>
-          </div>
+          <a href="#" style={{ fontSize: "0.78rem", color: "#2563eb", textDecoration: "none", fontWeight: 500 }}>
+            Forgot password?
+          </a>
         </div>
-
-        {/* Submit Button */}
-        <div className="mt-6">
+        <div style={{ position: "relative" }}>
+          <HiLockClosed style={{
+            position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)",
+            color: passFocused ? "#2563eb" : "#94a3b8", fontSize: "1.15rem", transition: "color 0.25s",
+          }} />
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Enter your password"
+            name="password"
+            id="password"
+            required
+            onFocus={() => setPassFocused(true)}
+            onBlur={() => setPassFocused(false)}
+            style={{ ...inputStyle(passFocused), paddingRight: "44px" }}
+          />
           <button
-            disabled={pending}
-            type="submit"
-            className={`${
-              pending ? "bg-gray-600" : "bg-blue-600"
-            } rounded-md w-full px-12 py-3 text-sm font-medium text-white`}
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            style={{
+              position: "absolute", right: "14px", top: "50%", transform: "translateY(-50%)",
+              background: "none", border: "none", cursor: "pointer",
+              color: "#94a3b8", display: "flex", alignItems: "center", padding: 0,
+              transition: "color 0.2s",
+            }}
           >
-            {pending ? "Loading..." : "Sign in"}
+            {showPassword ? <HiEyeOff size={19} /> : <HiEye size={19} />}
           </button>
         </div>
-      </form>
-    </div>
+      </div>
+
+      {/* Submit */}
+      <SubmitButton />
+
+      {/* Divider */}
+      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <div style={{ flex: 1, height: "1px", background: "#e2e8f0" }} />
+        <span style={{ color: "#94a3b8", fontSize: "0.78rem", fontWeight: 500 }}>OR SIGN IN WITH</span>
+        <div style={{ flex: 1, height: "1px", background: "#e2e8f0" }} />
+      </div>
+
+      {/* Security Note */}
+      <div style={{
+        display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
+        background: "#f0fdf4", borderRadius: "8px", padding: "10px",
+        border: "1px solid #bbf7d0",
+      }}>
+        <span style={{ fontSize: "0.9rem" }}>🔒</span>
+        <span style={{ color: "#16a34a", fontSize: "0.78rem", fontWeight: 500 }}>
+          256-bit SSL secured connection
+        </span>
+      </div>
+
+      <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+      `}</style>
+    </form>
   );
 };
 
