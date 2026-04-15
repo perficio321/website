@@ -12,6 +12,7 @@ const SubmitButton = () => {
     <button
       disabled={pending}
       type="submit"
+      id="signin-submit-btn"
       style={{
         width: "100%",
         padding: "13px",
@@ -103,9 +104,9 @@ const LoginForm = () => {
           }} />
           <input
             type="email"
-            placeholder="you@example.com"
             id="email"
             name="email"
+            placeholder="you@example.com"
             required
             onFocus={() => setEmailFocused(true)}
             onBlur={() => setEmailFocused(false)}
@@ -141,6 +142,7 @@ const LoginForm = () => {
           />
           <button
             type="button"
+            id="toggle-password-btn"
             onClick={() => setShowPassword(!showPassword)}
             style={{
               position: "absolute", right: "14px", top: "50%", transform: "translateY(-50%)",

@@ -11,6 +11,7 @@ const GoogleSignInButton = () => {
       onClick={() => login("google")}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      id="google-signin-btn"
       style={{
         display: "flex",
         alignItems: "center",
@@ -33,7 +34,7 @@ const GoogleSignInButton = () => {
       }}
     >
       <FcGoogle style={{ fontSize: "1.4rem", flexShrink: 0 }} />
-      Continue with Google
+      <span style={{ transition: "color 0.2s" }}>Continue with Google</span>
     </button>
   );
 };

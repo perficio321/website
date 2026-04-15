@@ -18,6 +18,9 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-amber-100 text-gray-900 relative">
+      {/* SEO Headline */}
+      <h1 className="sr-only">Perficio - Professional Financial Assistant and Wealth Management in India</h1>
+
       {/* Header Banner */}
       <section
         id="header-banner"
@@ -25,7 +28,7 @@ const Home = () => {
       >
         <Image
           src={headerBanner}
-          alt="Banner"
+          alt="Perficio - Expert Financial Planning and Wealth Management"
           className="object-contain md:object-cover"
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
@@ -37,18 +40,15 @@ const Home = () => {
       <section className="  w-full bg-amber-100 py-2 md:py-4 flex items-center justify-center relative overflow-hidden font-mono">
         {/* Content container */}
         <div className="relative z-10 text-center p-4 mx-4">
-          <p
+          <h2
             className={`${rubik.className} italic  text-md md:text-2xl   font-extrabold text-blue-900  md:tracking-wide`}
           >
             <span className="text-red-500">&quot;</span>
-            {/* First part of the text in blue */}
             We would like to be known as people who add meaningful value to the
             financial lives of our clients. To be respected as a company which
             is known for its high moral standards.
-            {/* The word "protect," in red and underlined, also serves as a line break point */}
-            {/* The rest of the text in blue */}
             <span className="text-red-600">&quot;</span>
-          </p>
+          </h2>
         </div>
       </section>
 

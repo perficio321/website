@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   FaFacebookF,
   FaInstagram,
@@ -10,9 +11,7 @@ import {
 } from "react-icons/fa";
 import {
   RiMoneyDollarCircleFill,
-  // RiBuilding2Fill,
   RiLinkM,
-  // RiNewspaperFill
 } from "react-icons/ri";
 
 const Footer = () => {
@@ -25,10 +24,10 @@ const Footer = () => {
           <div className="w-[170px] h-[170px] relative mx-auto lg:mx-0 overflow-hidden rounded-lg">
             <Image
               src="/assets/LogoTransparent.png"
-              alt="Perficio Logo"
+              alt="Perficio Advisory Services Logo"
               fill
               className="object-cover scale-105" // scale slightly to force cropping
-              priority
+              loading="lazy"
             />
           </div>
 
@@ -92,36 +91,36 @@ const Footer = () => {
             <RiMoneyDollarCircleFill className="text-2xl" /> Our Services
           </h3>
           <div className="grid grid-cols-1 gap-3 text-white/80 text-base">
-            <a href="direct-tax" className="hover:text-white transition-colors">
+            <Link href="/direct-tax" className="hover:text-white transition-colors">
               Direct Tax Consulting
-            </a>
-            <a
-              href="indirect-tax"
+            </Link>
+            <Link
+              href="/indirect-tax"
               className="hover:text-white transition-colors"
             >
               Indirect Tax Solutions
-            </a>
-            <a href="mca" className="hover:text-white transition-colors">
+            </Link>
+            <Link href="/mca" className="hover:text-white transition-colors">
               MCA Services
-            </a>
-            <a href="rera" className="hover:text-white transition-colors">
+            </Link>
+            <Link href="/rera" className="hover:text-white transition-colors">
               RERA Advisory
-            </a>
-            <a href="fema" className="hover:text-white transition-colors">
+            </Link>
+            <Link href="/international-tax" className="hover:text-white transition-colors">
               International Taxation
-            </a>
-            <a href="insurance" className="hover:text-white transition-colors">
+            </Link>
+            <Link href="/insurance" className="hover:text-white transition-colors">
               Insurance
-            </a>
-            <a href="invest" className="hover:text-white transition-colors">
+            </Link>
+            <Link href="/invest" className="hover:text-white transition-colors">
               Investment Planning
-            </a>
-            <a
-              href="real-estate"
+            </Link>
+            <Link
+              href="/real-estate"
               className="hover:text-white transition-colors"
             >
               Real Estate Guidance
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -132,28 +131,28 @@ const Footer = () => {
           </h3>
           <ul className="space-y-3 text-white/80 text-base">
             <li>
-              <a
-                href="all-blogs"
+              <Link
+                href="/all-blogs"
                 className="hover:text-white transition-colors duration-200"
               >
                 Blog & Insights
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="about"
+              <Link
+                href="/about"
                 className="hover:text-white transition-colors duration-200"
               >
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="contact"
+              <Link
+                href="/contact"
                 className="hover:text-white transition-colors duration-200"
               >
                 Contact Us
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -50,24 +50,40 @@ const parseGstData = (data: RawGstData): GstItem[] => {
   const tables: GstTable[] = [
     { key: 'Table 1', cgst: 2.5, sgst: 2.5, schedule: 'Schedule I (5%)' },
     { key: 'Table 2', cgst: 9, sgst: 9, schedule: 'Schedule II (18%)' },
-
-    // ✅ EXEMPT TABLE (all 0%)
-    // Change 'Exempt Table' to the real key in your gstdata.json for exempt items
-    { key: 'Exempt Table', cgst: 0, sgst: 0, schedule: 'Exempt (0%)' },
+    { key: 'Table 3', cgst: 14, sgst: 14, schedule: 'Schedule III (28%)' },
+    { key: 'Table 4', cgst: 6, sgst: 6, schedule: 'Schedule IV (12%)' },
+    { key: 'Table 5', cgst: 1.5, sgst: 1.5, schedule: 'Schedule V (3%)' },
+    { key: 'Exempt', cgst: 0, sgst: 0, schedule: 'Exempt' },
+    { key: 'Ann-I (113)', cgst: 6, sgst: 6, schedule: 'Schedule IV (12%)' },
+    { key: 'Ann -II (161)', cgst: 0, sgst: 0, schedule: 'Exempt' },
   ];
 
   for (const table of tables) {
     const jsonDataTable = data[table.key];
 
     if (Array.isArray(jsonDataTable)) {
+      let count = 0;
       jsonDataTable.forEach((row: RawRow) => {
-        const hsnCode = getTrimmedString(row, 'Column2');   // HSN column
-        const description = getTrimmedString(row, 'Column3'); // Description column
+        if (!row) return;
 
-        // Skip invalid / header rows
-        if (!hsnCode || hsnCode.length < 2 || hsnCode.startsWith('[')) {
+        // More robust HSN/Description detection across various column mappings
+        const hsnCode = getTrimmedString(row, 'Column2') || getTrimmedString(row, 'Column3') || getTrimmedString(row, 'Column7') || '';
+        const description = (
+          getTrimmedString(row, 'Column3') ||
+          getTrimmedString(row, 'Column4') ||
+          getTrimmedString(row, 'Column5') ||
+          getTrimmedString(row, 'Column8') ||
+          ''
+        );
+
+        // Skip obvious header or invalid rows. Allow single digit numeric HSNs (like Annexures)
+        if (!hsnCode || (hsnCode.length < 2 && !/^\d+$/.test(hsnCode)) || hsnCode.startsWith('[') || hsnCode === 'Column2' || hsnCode.toLowerCase().includes('chapter')) {
           return;
         }
+
+
+        // Avoid adding the same text twice if detection fell back to same column
+        if (hsnCode === description) return;
 
         allItems.push({
           hsn: hsnCode,
@@ -77,9 +93,12 @@ const parseGstData = (data: RawGstData): GstItem[] => {
           igst: table.cgst + table.sgst,
           schedule: table.schedule,
         });
+        count++;
       });
+      console.log(`✅ Table "${table.key}" loaded: ${count} items`);
     }
   }
+
 
   return allItems;
 };
@@ -122,43 +141,47 @@ export async function POST(request: NextRequest) {
 
     const rawSearchTerm = query.trim();
     const normalizedTerm = normalize(rawSearchTerm);
-    const isHsnSearch = /^\d+$/.test(normalizedTerm);
+    const tokenizedTerms = tokenize(normalizedTerm);
+    const isNumeric = /^\d+$/.test(normalizedTerm);
 
-    let results: GstItem[] = [];
-
-    if (isHsnSearch) {
-      // 🔍 HSN search: match any HSN containing those digits
-      results = searchableItems.filter((item) => {
+    const matches = searchableItems
+      .map((item) => {
         const itemHsn = normalize(String(item.hsn));
-        return itemHsn.includes(normalizedTerm);
-      });
-    } else {
-      // 🔍 Keyword search with simple scoring
-      const words = tokenize(normalizedTerm);
+        const itemDesc = normalize(item.description || '');
+        const haystack = `${itemHsn} ${itemDesc} ${normalize(item.schedule || '')}`;
 
-      results = searchableItems
-        .map((item) => {
-          const haystack = normalize(
-            `${item.description || ''} ${item.schedule || ''}`,
-          );
+        let score = 0;
 
-          let score = 0;
-          for (const w of words) {
-            if (!w) continue;
-            if (haystack.includes(w)) {
-              score += 1;
-            }
+        // 1. Check for exact HSN match (high priority)
+        if (isNumeric && itemHsn === normalizedTerm) {
+          score += 10;
+        } else if (isNumeric && itemHsn.includes(normalizedTerm)) {
+          score += 5;
+        }
+
+        // 2. Keyword matching score
+        for (const word of tokenizedTerms) {
+          if (!word) continue;
+          
+          if (itemDesc === word) {
+            score += 5; // Perfect match on a single word
+          } else if (itemDesc.startsWith(word + ' ') || itemDesc.endsWith(' ' + word)) {
+            score += 3; // Word boundary match
+          } else if (haystack.includes(word)) {
+            score += 1; // Generic substring match
           }
+        }
 
-          return { item, score };
-        })
-        .filter(({ score }) => score > 0)
-        .sort((a, b) => b.score - a.score)
-        .map(({ item }) => item);
-    }
+        return { item, score };
+      })
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score);
 
-    // ✅ Return ALL matches (no .slice(0, 5))
+    const results = matches.map(({ item }) => item);
+
+    // ✅ Return ALL matches
     return NextResponse.json({ results });
+
   } catch (error: any) {
     console.error('API Error:', error);
     return NextResponse.json(
