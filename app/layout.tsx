@@ -90,6 +90,11 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="9bcd9684-131a-4d39-87bc-20de225a6b75"
+        />
       </head>
       <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
