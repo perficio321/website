@@ -5,6 +5,8 @@ import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import ConditionalLayout from "@/components/ConditionalLayout/ConditionalLayout";
+import { Analytics } from "@vercel/analytics/next";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -100,6 +102,7 @@ export default async function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <ConditionalLayout>{children}</ConditionalLayout>
+          <Analytics />
         </body>
       </html>
     </SessionProvider>
